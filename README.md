@@ -38,7 +38,7 @@ The ```knuckleswtf/scribe``` package was used to generate Open Api Documentation
 ----------------------------------------------------------------------------
 
 ### Start project
-- clone repo from ```url```
+- clone repo
 - in .env set 
 
   ```DB_HOST=db```
