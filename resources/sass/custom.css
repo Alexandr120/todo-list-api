@@ -1,0 +1,15 @@
+.docs-btn {
+    margin: 25px 0;
+    padding: 8px;
+    background: #143d58;
+    border-radius: 10px;
+    color: white;
+    font-size: x-large;
+    text-align: center;
+}
+
+.docs-btn:hover {
+    background: #1a5073;
+}
+
+
