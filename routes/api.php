@@ -27,7 +27,8 @@ Route::controller(\App\Http\Controllers\Api\AuthController::class)->group(functi
 Route::resource('tasks', \App\Http\Controllers\Api\TaskController::class);
 
 Route::group(['prefix' => 'tasks'], function (){
-    Route::post('/ajaxFilter', [\App\Http\Controllers\Api\TaskController::class, 'ajaxFilter']);
+    Route::post('/filters', [\App\Http\Controllers\Api\TaskController::class, 'tasksFiltersData']);
+    Route::post('/ajax_filter', [\App\Http\Controllers\Api\TaskController::class, 'ajaxFilter']);
     Route::post('/complete/{task}', [\App\Http\Controllers\Api\TaskController::class, 'complete']);
 });
 

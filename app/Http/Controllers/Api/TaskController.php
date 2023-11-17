@@ -6,16 +6,15 @@ use App\DTO\Task\FiltersTasksDTO;
 use App\DTO\Task\TaskDTO;
 use App\Enums\TaskStatus;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Traits\TasksListFilters;
 use App\Models\Task;
 use App\Models\User;
 use Carbon\Carbon;
-use http\Header;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
-use Spatie\DataTransferObject\Exceptions\UnknownProperties;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
@@ -25,6 +24,8 @@ use Symfony\Component\HttpFoundation\Response;
  */
 class TaskController extends Controller
 {
+    use TasksListFilters;
+
     public function __construct()
     {
         $this->middleware('auth:sanctum');
@@ -52,7 +53,7 @@ class TaskController extends Controller
      * Get a list of tasks
      * @response 200 {
      *      "status": "success",
-     *      "message": "Ok",
+     *      "message": "Tasks List.",
      *      "data": {
      *          "current_page": 1,
      *          "data": [
@@ -115,7 +116,7 @@ class TaskController extends Controller
 
         $tasks = $this->getUserTasks($user)->orderBy('created_at');
 
-        return $this->sendResponse('success', 'Ok', Response::HTTP_OK, ['data' => $tasks->paginate(20)]);
+        return $this->sendResponse('success', 'Tasks List.', Response::HTTP_OK, ['data' => $tasks->paginate($this->defaultPageSize)]);
     }
 
     /**
@@ -127,6 +128,83 @@ class TaskController extends Controller
     private function getUserTasks(User $user): HasMany
     {
         return $user->tasks()->whereNull('parent_id');
+    }
+
+    /**
+     * Show Task filters
+     *
+     * Method for Ajax filtering task list
+     *
+     * @response 200 {
+     *   "select": {
+     *       "page_size": [
+     *           {
+     *               "id": 10,
+     *               "label": 10
+     *           },
+     *           {
+     *               "id": 20,
+     *               "label": 20
+     *           },
+     *           {
+     *               "id": 30,
+     *               "label": 30
+     *           },
+     *           {
+     *               "id": 40,
+     *               "label": 40
+     *           },
+     *           {
+     *               "id": 50,
+     *               "label": 50
+     *           }
+     *       ],
+     *       "status": [
+     *           {
+     *               "id": 1,
+     *               "label": "Todo"
+     *           },
+     *           {
+     *               "id": 2,
+     *               "label": "Done"
+     *           }
+     *       ],
+     *       "priority": [
+     *           {
+     *               "id": 1,
+     *               "label": "for future"
+     *           },
+     *           {
+     *               "id": 2,
+     *               "label": "Low"
+     *           },
+     *           {
+     *               "id": 3,
+     *               "label": "Middle"
+     *           },
+     *           {
+     *               "id": 4,
+     *               "label": "High"
+     *           },
+     *           {
+     *               "id": 5,
+     *               "label": "Urgently"
+     *           }
+     *       ]
+     *   },
+     *   "sorting": [
+     *       "created_at", "priority"
+     *   ],
+     *   "text": [
+     *       "title", "description"
+     *   ]
+     * }
+     *
+     * @return Collection
+     */
+    public function tasksFiltersData(): Collection
+    {
+        return $this->getTasksListFilters();
     }
 
     /**
@@ -163,7 +241,7 @@ class TaskController extends Controller
 
         $tasks->orderBy($pageFilters->sorting, $pageFilters->direction);
 
-        return $this->sendResponse('success', 'Ok', Response::HTTP_OK, ['data' => $tasks->paginate(20)]);
+        return $this->sendResponse('success', 'Filter tasks', Response::HTTP_OK, ['data' => $tasks->paginate(20)]);
     }
 
     /**
@@ -181,7 +259,7 @@ class TaskController extends Controller
      *
      * @response 200 {
      *        "status": "success",
-     *        "message": "ok",
+     *        "message": "Task created successful!",
      *        "task": {
      *        "user_id": "11",
      *        "title": "Task title",
@@ -239,7 +317,7 @@ class TaskController extends Controller
                 throw new \Exception('Task not created!');
             }
 
-            return $this->sendResponse('success', 'ok', Response::HTTP_OK, ['task' => $task]);
+            return $this->sendResponse('success', 'Task created successful!', Response::HTTP_OK, ['task' => $task]);
 
         } catch (\Exception $exception) {
             return $this->sendResponse('error', $exception->getMessage(), Response::HTTP_INTERNAL_SERVER_ERROR);
@@ -268,7 +346,7 @@ class TaskController extends Controller
      *
      * @response 200 {
      *   "status": "success",
-     *   "message": "ok",
+     *   "message": "Task with self tree subtasks",
      *   "task": {
      *       "id": 203,
      *       "user_id": 11,
@@ -332,7 +410,7 @@ class TaskController extends Controller
 
         $collection = $this->prepareTaskData($task);
 
-        return $this->sendResponse('success', 'ok', Response::HTTP_OK, ['task' => $collection]);
+        return $this->sendResponse('success', 'Task with self tree subtasks', Response::HTTP_OK, ['task' => $collection]);
     }
 
     /**
@@ -367,7 +445,7 @@ class TaskController extends Controller
      *
      * * @response 200 {
      *     "status": "success",
-     *     "message": "Task - "Task Title" update successfully!",
+     *     "message": "Task - "Task Title" updated successfully!",
      *     "task": {
      *         "user_id": "11",
      *         "title": "Task title UPDATE",
@@ -417,7 +495,7 @@ class TaskController extends Controller
 
             $task->update($data->all());
 
-            return $this->sendResponse('success', 'Task - "'.$data->title.'" update successfully!', Response::HTTP_OK, ['task' => $task]);
+            return $this->sendResponse('success', 'Task - "'.$data->title.'" updated successfully!', Response::HTTP_OK, ['task' => $task]);
 
         } catch (\Exception $exception) {
             return $this->sendResponse('error', $exception->getMessage(), Response::HTTP_INTERNAL_SERVER_ERROR);
@@ -508,7 +586,7 @@ class TaskController extends Controller
      *
      * @response 200 {
      *       "status": "success",
-     *       "message": "Task delete successfully!"
+     *       "message": "Task deleted successfully!"
      * }
      *
      * @response 400 {

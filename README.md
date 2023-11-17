@@ -1,6 +1,9 @@
 
 ## About Project
 
+Laravel v8.83.27 (PHP v8.1.25)
+
+
 In project implemented ```AuthController``` with appropriates  
 routings and auth methods.
 When authorizing, the user uses the standard credentials ```“email”``` and ```“password”```. In response, using Laravel's internal tools - Sanctum, the user receives a Bearer token.
@@ -22,12 +25,16 @@ The controller has access only if the user is authorized ```middleware('auth:san
 - ```[PUT|PATCH] update()```
 - ```[DELETE] destroy()```
 
+
+The logic for displaying a list of all user tasks is as follows. The method index shows only all parent tasks. To see any subtasks, you need to go to the target task view.
+
 Resource routing is implemented accordingly ```Route::resource('tasks', \App\Http\Controllers\Api\TaskController::class);```
 
 ```TaskController``` also contains helper methods:
 
 - Method ```[POST] ajaxFilter()``` for filtered Tasks list. It is assumed that this method is called using an "ajax" request from the front-end part.
 - Method ```[POST] complete``` updated status task and set date time in field completed_at.
+- Method ```[POST] tasksFiltersData``` for filters data for view index in tasks tables.
 
 You can read documentation here ```127.0.0.1/docs```
 
@@ -48,12 +55,15 @@ The ```knuckleswtf/scribe``` package was used to generate Open Api Documentation
   ```DB_USERNAME=root```
 
   ```DB_PASSWORD=password```
+
 - composer install
+- php artisan optimize
 - docker-compose up -d --build
 - docker-compose exec app php artisan key:generate
 - docker-compose exec app php artisan optimize
 - docker-compose exec app php artisan migrate
 - docker-compose exec app php artisan db:seed
 
+### In web browser run 127.0.0.1 
 ### Run to Postman and try test project. 
 

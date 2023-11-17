@@ -105,8 +105,11 @@
                                                                                 <li class="tocify-item level-2" data-unique="task-management-DELETEapi-tasks--id-">
                                 <a href="#task-management-DELETEapi-tasks--id-">Remove the task.</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="task-management-POSTapi-tasks-ajaxFilter">
-                                <a href="#task-management-POSTapi-tasks-ajaxFilter">Display a listing tasks with filters</a>
+                                                                                <li class="tocify-item level-2" data-unique="task-management-POSTapi-tasks-filters">
+                                <a href="#task-management-POSTapi-tasks-filters">Show Task filters</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="task-management-POSTapi-tasks-ajax_filter">
+                                <a href="#task-management-POSTapi-tasks-ajax_filter">Display a listing tasks with filters</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="task-management-POSTapi-tasks-complete--task_id-">
                                 <a href="#task-management-POSTapi-tasks-complete--task_id-">Complete the task</a>
@@ -161,8 +164,8 @@ You can switch the language used with the tabs at the top right (or from the nav
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"email\": \"alysson00@example.net\",
-    \"password\": \"ZF%9xjZN@\'ivaE7p=U\"
+    \"email\": \"brianne.nolan@example.org\",
+    \"password\": \"y.%N.a\'K1;*vBY\"
 }"
 </code></pre></div>
 
@@ -178,8 +181,8 @@ const headers = {
 };
 
 let body = {
-    "email": "alysson00@example.net",
-    "password": "ZF%9xjZN@'ivaE7p=U"
+    "email": "brianne.nolan@example.org",
+    "password": "y.%N.a'K1;*vBY"
 };
 
 fetch(url, {
@@ -268,10 +271,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-login"
-               value="alysson00@example.net"
+               value="brianne.nolan@example.org"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>alysson00@example.net</code></p>
+<p>Must be a valid email address. Example: <code>brianne.nolan@example.org</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -279,10 +282,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-login"
-               value="ZF%9xjZN@'ivaE7p=U"
+               value="y.%N.a'K1;*vBY"
                data-component="body">
     <br>
-<p>Example: <code>ZF%9xjZN@'ivaE7p=U</code></p>
+<p>Example: <code>y.%N.a'K1;*vBY</code></p>
         </div>
         </form>
 
@@ -303,9 +306,9 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"uhnre\",
-    \"email\": \"elisabeth.schmitt@example.com\",
-    \"password\": \"v?z^`:$w4jvF29i\"
+    \"name\": \"xaqenhtfvcun\",
+    \"email\": \"dina12@example.net\",
+    \"password\": \",5DukO!:9pkE%01\"
 }"
 </code></pre></div>
 
@@ -321,9 +324,9 @@ const headers = {
 };
 
 let body = {
-    "name": "uhnre",
-    "email": "elisabeth.schmitt@example.com",
-    "password": "v?z^`:$w4jvF29i"
+    "name": "xaqenhtfvcun",
+    "email": "dina12@example.net",
+    "password": ",5DukO!:9pkE%01"
 };
 
 fetch(url, {
@@ -412,10 +415,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="POSTapi-register"
-               value="uhnre"
+               value="xaqenhtfvcun"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>uhnre</code></p>
+<p>Must not be greater than 255 characters. Example: <code>xaqenhtfvcun</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
@@ -423,10 +426,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-register"
-               value="elisabeth.schmitt@example.com"
+               value="dina12@example.net"
                data-component="body">
     <br>
-<p>Must be a valid email address. Must not be greater than 255 characters. Example: <code>elisabeth.schmitt@example.com</code></p>
+<p>Must be a valid email address. Must not be greater than 255 characters. Example: <code>dina12@example.net</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -434,10 +437,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-register"
-               value="v?z^`:$w4jvF29i"
+               value=",5DukO!:9pkE%01"
                data-component="body">
     <br>
-<p>Must be at least 6 characters. Example: <code>v?z^</code>:$w4jvF29i`</p>
+<p>Must be at least 6 characters. Example: <code>,5DukO!:9pkE%01</code></p>
         </div>
         </form>
 
@@ -704,7 +707,7 @@ fetch(url, {
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;status&quot;: &quot;success&quot;,
-    &quot;message&quot;: &quot;Ok&quot;,
+    &quot;message&quot;: &quot;Tasks List.&quot;,
     &quot;data&quot;: {
         &quot;current_page&quot;: 1,
         &quot;data&quot;: [
@@ -899,7 +902,7 @@ fetch(url, {
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;status&quot;: &quot;success&quot;,
-    &quot;message&quot;: &quot;ok&quot;,
+    &quot;message&quot;: &quot;Task created successful!&quot;,
     &quot;task&quot;: {
         &quot;user_id&quot;: &quot;11&quot;,
         &quot;title&quot;: &quot;Task title&quot;,
@@ -1076,14 +1079,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://127.0.0.1/api/tasks/1" \
+    --get "http://127.0.0.1/api/tasks/6" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1/api/tasks/1"
+    "http://127.0.0.1/api/tasks/6"
 );
 
 const headers = {
@@ -1106,7 +1109,7 @@ fetch(url, {
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;status&quot;: &quot;success&quot;,
-    &quot;message&quot;: &quot;ok&quot;,
+    &quot;message&quot;: &quot;Task with self tree subtasks&quot;,
     &quot;task&quot;: {
         &quot;id&quot;: 203,
         &quot;user_id&quot;: 11,
@@ -1245,10 +1248,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="GETapi-tasks--id-"
-               value="1"
+               value="6"
                data-component="url">
     <br>
-<p>The ID of the task. Example: <code>1</code></p>
+<p>The ID of the task. Example: <code>6</code></p>
             </div>
                     </form>
 
@@ -1265,7 +1268,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://127.0.0.1/api/tasks/1" \
+    "http://127.0.0.1/api/tasks/5" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -1278,7 +1281,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1/api/tasks/1"
+    "http://127.0.0.1/api/tasks/5"
 );
 
 const headers = {
@@ -1416,10 +1419,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="PUTapi-tasks--id-"
-               value="1"
+               value="5"
                data-component="url">
     <br>
-<p>The ID of the task. Example: <code>1</code></p>
+<p>The ID of the task. Example: <code>5</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -1470,14 +1473,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://127.0.0.1/api/tasks/1" \
+    "http://127.0.0.1/api/tasks/17" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1/api/tasks/1"
+    "http://127.0.0.1/api/tasks/17"
 );
 
 const headers = {
@@ -1500,7 +1503,7 @@ fetch(url, {
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;status&quot;: &quot;success&quot;,
-    &quot;message&quot;: &quot;Task delete successfully!&quot;
+    &quot;message&quot;: &quot;Task deleted successfully!&quot;
 }</code>
  </pre>
             <blockquote>
@@ -1609,27 +1612,207 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="DELETEapi-tasks--id-"
-               value="1"
+               value="17"
                data-component="url">
     <br>
-<p>The ID of the task. Example: <code>1</code></p>
+<p>The ID of the task. Example: <code>17</code></p>
             </div>
                     </form>
 
-                    <h2 id="task-management-POSTapi-tasks-ajaxFilter">Display a listing tasks with filters</h2>
+                    <h2 id="task-management-POSTapi-tasks-filters">Show Task filters</h2>
 
 <p>
 </p>
 
 <p>Method for Ajax filtering task list</p>
 
-<span id="example-requests-POSTapi-tasks-ajaxFilter">
+<span id="example-requests-POSTapi-tasks-filters">
 <blockquote>Example request:</blockquote>
 
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://127.0.0.1/api/tasks/ajaxFilter" \
+    "http://127.0.0.1/api/tasks/filters" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1/api/tasks/filters"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-tasks-filters">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;select&quot;: {
+        &quot;page_size&quot;: [
+            {
+                &quot;id&quot;: 10,
+                &quot;label&quot;: 10
+            },
+            {
+                &quot;id&quot;: 20,
+                &quot;label&quot;: 20
+            },
+            {
+                &quot;id&quot;: 30,
+                &quot;label&quot;: 30
+            },
+            {
+                &quot;id&quot;: 40,
+                &quot;label&quot;: 40
+            },
+            {
+                &quot;id&quot;: 50,
+                &quot;label&quot;: 50
+            }
+        ],
+        &quot;status&quot;: [
+            {
+                &quot;id&quot;: 1,
+                &quot;label&quot;: &quot;Todo&quot;
+            },
+            {
+                &quot;id&quot;: 2,
+                &quot;label&quot;: &quot;Done&quot;
+            }
+        ],
+        &quot;priority&quot;: [
+            {
+                &quot;id&quot;: 1,
+                &quot;label&quot;: &quot;for future&quot;
+            },
+            {
+                &quot;id&quot;: 2,
+                &quot;label&quot;: &quot;Low&quot;
+            },
+            {
+                &quot;id&quot;: 3,
+                &quot;label&quot;: &quot;Middle&quot;
+            },
+            {
+                &quot;id&quot;: 4,
+                &quot;label&quot;: &quot;High&quot;
+            },
+            {
+                &quot;id&quot;: 5,
+                &quot;label&quot;: &quot;Urgently&quot;
+            }
+        ]
+    },
+    &quot;sorting&quot;: [
+        &quot;created_at&quot;,
+        &quot;priority&quot;
+    ],
+    &quot;text&quot;: [
+        &quot;title&quot;,
+        &quot;description&quot;
+    ]
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-tasks-filters" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-tasks-filters"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-tasks-filters"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-tasks-filters" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-tasks-filters">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-tasks-filters" data-method="POST"
+      data-path="api/tasks/filters"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-tasks-filters', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-tasks-filters"
+                    onclick="tryItOut('POSTapi-tasks-filters');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-tasks-filters"
+                    onclick="cancelTryOut('POSTapi-tasks-filters');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-tasks-filters"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/tasks/filters</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-tasks-filters"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-tasks-filters"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="task-management-POSTapi-tasks-ajax_filter">Display a listing tasks with filters</h2>
+
+<p>
+</p>
+
+<p>Method for Ajax filtering task list</p>
+
+<span id="example-requests-POSTapi-tasks-ajax_filter">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://127.0.0.1/api/tasks/ajax_filter" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -1648,7 +1831,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1/api/tasks/ajaxFilter"
+    "http://127.0.0.1/api/tasks/ajax_filter"
 );
 
 const headers = {
@@ -1676,45 +1859,45 @@ fetch(url, {
 
 </span>
 
-<span id="example-responses-POSTapi-tasks-ajaxFilter">
+<span id="example-responses-POSTapi-tasks-ajax_filter">
 </span>
-<span id="execution-results-POSTapi-tasks-ajaxFilter" hidden>
+<span id="execution-results-POSTapi-tasks-ajax_filter" hidden>
     <blockquote>Received response<span
-                id="execution-response-status-POSTapi-tasks-ajaxFilter"></span>:
+                id="execution-response-status-POSTapi-tasks-ajax_filter"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-tasks-ajaxFilter"
+    <pre class="json"><code id="execution-response-content-POSTapi-tasks-ajax_filter"
       data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
 </span>
-<span id="execution-error-POSTapi-tasks-ajaxFilter" hidden>
+<span id="execution-error-POSTapi-tasks-ajax_filter" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-tasks-ajaxFilter">
+    <pre><code id="execution-error-message-POSTapi-tasks-ajax_filter">
 
 Tip: Check that you&#039;re properly connected to the network.
 If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
 You can check the Dev Tools console for debugging information.</code></pre>
 </span>
-<form id="form-POSTapi-tasks-ajaxFilter" data-method="POST"
-      data-path="api/tasks/ajaxFilter"
+<form id="form-POSTapi-tasks-ajax_filter" data-method="POST"
+      data-path="api/tasks/ajax_filter"
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POSTapi-tasks-ajaxFilter', this);">
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-tasks-ajax_filter', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
                     <button type="button"
                     style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-tasks-ajaxFilter"
-                    onclick="tryItOut('POSTapi-tasks-ajaxFilter');">Try it out ⚡
+                    id="btn-tryout-POSTapi-tasks-ajax_filter"
+                    onclick="tryItOut('POSTapi-tasks-ajax_filter');">Try it out ⚡
             </button>
             <button type="button"
                     style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-tasks-ajaxFilter"
-                    onclick="cancelTryOut('POSTapi-tasks-ajaxFilter');" hidden>Cancel 🛑
+                    id="btn-canceltryout-POSTapi-tasks-ajax_filter"
+                    onclick="cancelTryOut('POSTapi-tasks-ajax_filter');" hidden>Cancel 🛑
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-tasks-ajaxFilter"
+                    id="btn-executetryout-POSTapi-tasks-ajax_filter"
                     data-initial-text="Send Request 💥"
                     data-loading-text="⏱ Sending..."
                     hidden>Send Request 💥
@@ -1722,7 +1905,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </h3>
             <p>
             <small class="badge badge-black">POST</small>
-            <b><code>api/tasks/ajaxFilter</code></b>
+            <b><code>api/tasks/ajax_filter</code></b>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
                                 <div style="padding-left: 28px; clear: unset;">
@@ -1730,7 +1913,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="POSTapi-tasks-ajaxFilter"
+                              name="Content-Type"                data-endpoint="POSTapi-tasks-ajax_filter"
                value="application/json"
                data-component="header">
     <br>
@@ -1741,7 +1924,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="POSTapi-tasks-ajaxFilter"
+                              name="Accept"                data-endpoint="POSTapi-tasks-ajax_filter"
                value="application/json"
                data-component="header">
     <br>
@@ -1753,7 +1936,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small>integer</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
-               step="any"               name="page_size"                data-endpoint="POSTapi-tasks-ajaxFilter"
+               step="any"               name="page_size"                data-endpoint="POSTapi-tasks-ajax_filter"
                value="20"
                data-component="body">
     <br>
@@ -1773,7 +1956,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small>string.</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
-                              name="sorting.column"                data-endpoint="POSTapi-tasks-ajaxFilter"
+                              name="sorting.column"                data-endpoint="POSTapi-tasks-ajax_filter"
                value="priority"
                data-component="body">
     <br>
@@ -1784,7 +1967,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small>string.</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
-                              name="sorting.direction"                data-endpoint="POSTapi-tasks-ajaxFilter"
+                              name="sorting.direction"                data-endpoint="POSTapi-tasks-ajax_filter"
                value="desc"
                data-component="body">
     <br>
@@ -1806,7 +1989,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small>integer</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
-               step="any"               name="filters.status"                data-endpoint="POSTapi-tasks-ajaxFilter"
+               step="any"               name="filters.status"                data-endpoint="POSTapi-tasks-ajax_filter"
                value="1"
                data-component="body">
     <br>
@@ -1817,7 +2000,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small>integer</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
-               step="any"               name="filters.priority"                data-endpoint="POSTapi-tasks-ajaxFilter"
+               step="any"               name="filters.priority"                data-endpoint="POSTapi-tasks-ajax_filter"
                value="3"
                data-component="body">
     <br>
@@ -1840,14 +2023,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://127.0.0.1/api/tasks/complete/1" \
+    "http://127.0.0.1/api/tasks/complete/4" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1/api/tasks/complete/1"
+    "http://127.0.0.1/api/tasks/complete/4"
 );
 
 const headers = {
@@ -1990,10 +2173,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="task_id"                data-endpoint="POSTapi-tasks-complete--task_id-"
-               value="1"
+               value="4"
                data-component="url">
     <br>
-<p>The ID of the task. Example: <code>1</code></p>
+<p>The ID of the task. Example: <code>4</code></p>
             </div>
                     </form>
 

@@ -16,4 +16,30 @@ enum TaskPriority: int
     case HIGH = 4;
     case URGENTLY = 5;
 
+    public static function getTaskPrioritiesFilterData(): array
+    {
+        return [
+            [
+                'id' => self::FOR_FUTURE(),
+                'label' => 'for future'
+            ],
+            [
+                'id' => self::LOW(),
+                'label' => 'Low'
+            ],
+            [
+                'id' => self::MIDDLE(),
+                'label' => 'Middle'
+            ],
+            [
+                'id' => self::HIGH(),
+                'label' => 'High'
+            ],
+            [
+                'id' => self::URGENTLY(),
+                'label' => 'Urgently'
+            ]
+        ];
+    }
+
 }

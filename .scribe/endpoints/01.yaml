@@ -34,7 +34,7 @@ endpoints:
         content: |-
           {
                "status": "success",
-               "message": "Ok",
+               "message": "Tasks List.",
                "data": {
                    "current_page": 1,
                    "data": [
@@ -174,7 +174,7 @@ endpoints:
         content: |-
           {
                  "status": "success",
-                 "message": "ok",
+                 "message": "Task created successful!",
                  "task": {
                  "user_id": "11",
                  "title": "Task title",
@@ -252,12 +252,12 @@ endpoints:
         name: id
         description: 'The ID of the task.'
         required: true
-        example: 1
+        example: 6
         type: integer
         enumValues: []
         custom: []
     cleanUrlParameters:
-      id: 1
+      id: 6
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -269,7 +269,7 @@ endpoints:
         content: |-
           {
             "status": "success",
-            "message": "ok",
+            "message": "Task with self tree subtasks",
             "task": {
                 "id": 203,
                 "user_id": 11,
@@ -363,12 +363,12 @@ endpoints:
         name: id
         description: 'The ID of the task.'
         required: true
-        example: 1
+        example: 5
         type: integer
         enumValues: []
         custom: []
     cleanUrlParameters:
-      id: 1
+      id: 5
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -465,12 +465,12 @@ endpoints:
         name: id
         description: 'The ID of the task.'
         required: true
-        example: 1
+        example: 17
         type: integer
         enumValues: []
         custom: []
     cleanUrlParameters:
-      id: 1
+      id: 17
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -482,7 +482,7 @@ endpoints:
         content: |-
           {
                 "status": "success",
-                "message": "Task delete successfully!"
+                "message": "Task deleted successfully!"
           }
         headers: []
         description: ''
@@ -525,7 +525,109 @@ endpoints:
   -
     httpMethods:
       - POST
-    uri: api/tasks/ajaxFilter
+    uri: api/tasks/filters
+    metadata:
+      groupName: 'Task Management'
+      groupDescription: |-
+
+        APIs to manage the user task resourse
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Show Task filters'
+      description: 'Method for Ajax filtering task list'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "select": {
+                "page_size": [
+                    {
+                        "id": 10,
+                        "label": 10
+                    },
+                    {
+                        "id": 20,
+                        "label": 20
+                    },
+                    {
+                        "id": 30,
+                        "label": 30
+                    },
+                    {
+                        "id": 40,
+                        "label": 40
+                    },
+                    {
+                        "id": 50,
+                        "label": 50
+                    }
+                ],
+                "status": [
+                    {
+                        "id": 1,
+                        "label": "Todo"
+                    },
+                    {
+                        "id": 2,
+                        "label": "Done"
+                    }
+                ],
+                "priority": [
+                    {
+                        "id": 1,
+                        "label": "for future"
+                    },
+                    {
+                        "id": 2,
+                        "label": "Low"
+                    },
+                    {
+                        "id": 3,
+                        "label": "Middle"
+                    },
+                    {
+                        "id": 4,
+                        "label": "High"
+                    },
+                    {
+                        "id": 5,
+                        "label": "Urgently"
+                    }
+                ]
+            },
+            "sorting": [
+                "created_at", "priority"
+            ],
+            "text": [
+                "title", "description"
+            ]
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/tasks/ajax_filter
     metadata:
       groupName: 'Task Management'
       groupDescription: |-
@@ -640,12 +742,12 @@ endpoints:
         name: task_id
         description: 'The ID of the task.'
         required: true
-        example: 1
+        example: 4
         type: integer
         enumValues: []
         custom: []
     cleanUrlParameters:
-      task_id: 1
+      task_id: 4
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []

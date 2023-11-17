@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Laravel",
-        "_postman_id": "219243f1-ad2c-48f9-886d-f7fb765127f1",
+        "_postman_id": "014737b9-39e6-44b5-a2b6-6455e6668be3",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -41,7 +41,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"alysson00@example.net\",\"password\":\"ZF%9xjZN@'ivaE7p=U\"}"
+                            "raw": "{\"email\":\"brianne.nolan@example.org\",\"password\":\"y.%N.a'K1;*vBY\"}"
                         },
                         "description": "",
                         "auth": {
@@ -72,7 +72,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"uhnre\",\"email\":\"elisabeth.schmitt@example.com\",\"password\":\"v?z^`:$w4jvF29i\"}"
+                            "raw": "{\"name\":\"xaqenhtfvcun\",\"email\":\"dina12@example.net\",\"password\":\",5DukO!:9pkE%01\"}"
                         },
                         "description": "",
                         "auth": {
@@ -173,7 +173,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\n     \"status\": \"success\",\n     \"message\": \"Ok\",\n     \"data\": {\n         \"current_page\": 1,\n         \"data\": [\n              {\n                  \"id\": 203,\n                  \"user_id\": 11,\n                  \"title\": \"Task title\",\n                  \"status\": 1,\n                  \"priority\": 1,\n                  \"description\": \"Some desc ......\",\n                  \"parent_id\": null,\n                  \"completed_at\": null,\n                  \"created_at\": \"2023-11-16T00:29:54.000000Z\"\n              }\n         ],\n         \"first_page_url\": \"http:\/\/127.0.0.1:8000\/api\/tasks?page=1\",\n          \"from\": 1,\n          \"last_page\": 1,\n          \"last_page_url\": \"http:\/\/127.0.0.1:8000\/api\/tasks?page=1\",\n          \"links\": [\n              {\n                  \"url\": null,\n                  \"label\": \"&laquo; Previous\",\n                  \"active\": false\n              },\n              {\n                  \"url\": \"http:\/\/127.0.0.1:8000\/api\/tasks?page=1\",\n                  \"label\": \"1\",\n                  \"active\": true\n              },\n              {\n                  \"url\": null,\n                  \"label\": \"Next &raquo;\",\n                  \"active\": false\n              }\n          ],\n          \"next_page_url\": null,\n          \"path\": \"http:\/\/127.0.0.1\/api\/tasks\",\n          \"per_page\": 20,\n          \"prev_page_url\": null,\n          \"to\": 2,\n          \"total\": 2\n     }\n}",
+                            "body": "{\n     \"status\": \"success\",\n     \"message\": \"Tasks List.\",\n     \"data\": {\n         \"current_page\": 1,\n         \"data\": [\n              {\n                  \"id\": 203,\n                  \"user_id\": 11,\n                  \"title\": \"Task title\",\n                  \"status\": 1,\n                  \"priority\": 1,\n                  \"description\": \"Some desc ......\",\n                  \"parent_id\": null,\n                  \"completed_at\": null,\n                  \"created_at\": \"2023-11-16T00:29:54.000000Z\"\n              }\n         ],\n         \"first_page_url\": \"http:\/\/127.0.0.1:8000\/api\/tasks?page=1\",\n          \"from\": 1,\n          \"last_page\": 1,\n          \"last_page_url\": \"http:\/\/127.0.0.1:8000\/api\/tasks?page=1\",\n          \"links\": [\n              {\n                  \"url\": null,\n                  \"label\": \"&laquo; Previous\",\n                  \"active\": false\n              },\n              {\n                  \"url\": \"http:\/\/127.0.0.1:8000\/api\/tasks?page=1\",\n                  \"label\": \"1\",\n                  \"active\": true\n              },\n              {\n                  \"url\": null,\n                  \"label\": \"Next &raquo;\",\n                  \"active\": false\n              }\n          ],\n          \"next_page_url\": null,\n          \"path\": \"http:\/\/127.0.0.1\/api\/tasks\",\n          \"per_page\": 20,\n          \"prev_page_url\": null,\n          \"to\": 2,\n          \"total\": 2\n     }\n}",
                             "name": ""
                         },
                         {
@@ -223,7 +223,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\n       \"status\": \"success\",\n       \"message\": \"ok\",\n       \"task\": {\n       \"user_id\": \"11\",\n       \"title\": \"Task title\",\n       \"description\": \"Some desc ......\",\n       \"status\": 1,\n       \"priority\": 1,\n       \"parent_id\": null,\n       \"created_at\": \"2023-11-16T23:59:12.000000Z\",\n       \"id\": 206\n    }\n}",
+                            "body": "{\n       \"status\": \"success\",\n       \"message\": \"Task created successful!\",\n       \"task\": {\n       \"user_id\": \"11\",\n       \"title\": \"Task title\",\n       \"description\": \"Some desc ......\",\n       \"status\": 1,\n       \"priority\": 1,\n       \"parent_id\": null,\n       \"created_at\": \"2023-11-16T23:59:12.000000Z\",\n       \"id\": 206\n    }\n}",
                             "name": ""
                         },
                         {
@@ -258,7 +258,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "1",
+                                    "value": "6",
                                     "description": "The ID of the task."
                                 }
                             ]
@@ -284,7 +284,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\n  \"status\": \"success\",\n  \"message\": \"ok\",\n  \"task\": {\n      \"id\": 203,\n      \"user_id\": 11,\n      \"title\": \"Task title\",\n      \"status\": \"1\",\n      \"priority\": \"1\",\n      \"description\": \"Some task description...\",\n      \"parent_id\": null,\n      \"completed_at\": null,\n      \"created_at\": \"2023-11-16 00:29:54\",\n      \"updated_at\": \"2023-11-16 00:29:54\",\n      \"subtasks\": [\n          {\n              \"id\": 205,\n              \"user_id\": 11,\n              \"title\": \"Sub Task from task 203\",\n              \"status\": \"1\",\n              \"priority\": \"1\",\n              \"description\": \"Some task description...\",\n              \"parent_id\": \"203\",\n              \"completed_at\": null,\n              \"created_at\": \"2023-11-16 00:31:23\",\n              \"updated_at\": \"2023-11-16 00:37:27\",\n              \"subtasks\": [\n                  {\n                      \"id\": 206,\n                      \"user_id\": 11,\n                      \"title\": \"Sub Task from task 205\",\n                      \"status\": \"1\",\n                      \"priority\": \"1\",\n                      \"description\": \"Some task description...\",\n                      \"parent_id\": \"205\",\n                      \"completed_at\": null,\n                      \"created_at\": \"2023-11-16 23:59:12\",\n                      \"updated_at\": \"2023-11-16 23:59:12\"\n                  }\n              ]\n          }\n      ]\n  }\n}",
+                            "body": "{\n  \"status\": \"success\",\n  \"message\": \"Task with self tree subtasks\",\n  \"task\": {\n      \"id\": 203,\n      \"user_id\": 11,\n      \"title\": \"Task title\",\n      \"status\": \"1\",\n      \"priority\": \"1\",\n      \"description\": \"Some task description...\",\n      \"parent_id\": null,\n      \"completed_at\": null,\n      \"created_at\": \"2023-11-16 00:29:54\",\n      \"updated_at\": \"2023-11-16 00:29:54\",\n      \"subtasks\": [\n          {\n              \"id\": 205,\n              \"user_id\": 11,\n              \"title\": \"Sub Task from task 203\",\n              \"status\": \"1\",\n              \"priority\": \"1\",\n              \"description\": \"Some task description...\",\n              \"parent_id\": \"203\",\n              \"completed_at\": null,\n              \"created_at\": \"2023-11-16 00:31:23\",\n              \"updated_at\": \"2023-11-16 00:37:27\",\n              \"subtasks\": [\n                  {\n                      \"id\": 206,\n                      \"user_id\": 11,\n                      \"title\": \"Sub Task from task 205\",\n                      \"status\": \"1\",\n                      \"priority\": \"1\",\n                      \"description\": \"Some task description...\",\n                      \"parent_id\": \"205\",\n                      \"completed_at\": null,\n                      \"created_at\": \"2023-11-16 23:59:12\",\n                      \"updated_at\": \"2023-11-16 23:59:12\"\n                  }\n              ]\n          }\n      ]\n  }\n}",
                             "name": ""
                         },
                         {
@@ -313,7 +313,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "1",
+                                    "value": "5",
                                     "description": "The ID of the task."
                                 }
                             ]
@@ -371,7 +371,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "1",
+                                    "value": "17",
                                     "description": "The ID of the task."
                                 }
                             ]
@@ -397,7 +397,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\n      \"status\": \"success\",\n      \"message\": \"Task delete successfully!\"\n}",
+                            "body": "{\n      \"status\": \"success\",\n      \"message\": \"Task deleted successfully!\"\n}",
                             "name": ""
                         },
                         {
@@ -421,13 +421,48 @@
                     ]
                 },
                 {
+                    "name": "Show Task filters",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/tasks\/filters",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/tasks\/filters"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Method for Ajax filtering task list",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"select\": {\n      \"page_size\": [\n          {\n              \"id\": 10,\n              \"label\": 10\n          },\n          {\n              \"id\": 20,\n              \"label\": 20\n          },\n          {\n              \"id\": 30,\n              \"label\": 30\n          },\n          {\n              \"id\": 40,\n              \"label\": 40\n          },\n          {\n              \"id\": 50,\n              \"label\": 50\n          }\n      ],\n      \"status\": [\n          {\n              \"id\": 1,\n              \"label\": \"Todo\"\n          },\n          {\n              \"id\": 2,\n              \"label\": \"Done\"\n          }\n      ],\n      \"priority\": [\n          {\n              \"id\": 1,\n              \"label\": \"for future\"\n          },\n          {\n              \"id\": 2,\n              \"label\": \"Low\"\n          },\n          {\n              \"id\": 3,\n              \"label\": \"Middle\"\n          },\n          {\n              \"id\": 4,\n              \"label\": \"High\"\n          },\n          {\n              \"id\": 5,\n              \"label\": \"Urgently\"\n          }\n      ]\n  },\n  \"sorting\": [\n      \"created_at\", \"priority\"\n  ],\n  \"text\": [\n      \"title\", \"description\"\n  ]\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
                     "name": "Display a listing tasks with filters",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
-                            "path": "api\/tasks\/ajaxFilter",
+                            "path": "api\/tasks\/ajax_filter",
                             "query": [],
-                            "raw": "{{baseUrl}}\/api\/tasks\/ajaxFilter"
+                            "raw": "{{baseUrl}}\/api\/tasks\/ajax_filter"
                         },
                         "method": "POST",
                         "header": [
@@ -463,7 +498,7 @@
                                 {
                                     "id": "task_id",
                                     "key": "task_id",
-                                    "value": "1",
+                                    "value": "4",
                                     "description": "The ID of the task."
                                 }
                             ]

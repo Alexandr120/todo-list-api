@@ -23,4 +23,18 @@ enum TaskStatus: int
         return $this === self::TODO;
     }
 
+    public static function getTaskStatusFilterData(): array
+    {
+        return [
+            [
+                'id' => self::TODO(),
+                'label' => 'Todo'
+            ],
+            [
+                'id' => self::DONE(),
+                'label' => 'Done'
+            ]
+        ];
+    }
+
 }
