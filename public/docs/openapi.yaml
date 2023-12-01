@@ -26,11 +26,11 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: brianne.nolan@example.org
+                  example: jupton@example.com
                 password:
                   type: string
                   description: ''
-                  example: "y.%N.a'K1;*vBY"
+                  example: vh=(%6
               required:
                 - email
                 - password
@@ -54,15 +54,15 @@ paths:
                 name:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: xaqenhtfvcun
+                  example: ysqybp
                 email:
                   type: string
                   description: 'Must be a valid email address. Must not be greater than 255 characters.'
-                  example: dina12@example.net
+                  example: aletha59@example.org
                 password:
                   type: string
                   description: 'Must be at least 6 characters.'
-                  example: ',5DukO!:9pkE%01'
+                  example: '5(v-:AaF9NG57gFh@#9'
               required:
                 - name
                 - email
@@ -283,6 +283,43 @@ paths:
                     example: Forbidden!
       tags:
         - 'Task Management'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                page_size:
+                  type: integer
+                  description: 'Per page. Default 20.'
+                  example: 20
+                sorting:
+                  type: object
+                  description: 'Sorting by column. Default column "created_at" with direction "asc".'
+                  example: []
+                  properties:
+                    column:
+                      type: string.
+                      description: ''
+                      example: priority
+                    direction:
+                      type: string.
+                      description: ''
+                      example: desc
+                filters:
+                  type: object
+                  description: 'Tasks filters.'
+                  example: []
+                  properties:
+                    status:
+                      type: integer
+                      description: 'filter - "Status".'
+                      example: 1
+                    priority:
+                      type: integer
+                      description: 'filter - "Priority".'
+                      example: 3
       security: []
     post:
       summary: 'Store a newly created task.'
@@ -818,277 +855,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the task.'
-        example: 6
-        required: true
-        schema:
-          type: integer
-  /api/tasks/filters:
-    post:
-      summary: 'Show Task filters'
-      operationId: showTaskFilters
-      description: 'Method for Ajax filtering task list'
-      parameters: []
-      responses:
-        200:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  select:
-                    page_size:
-                      -
-                        id: 10
-                        label: 10
-                      -
-                        id: 20
-                        label: 20
-                      -
-                        id: 30
-                        label: 30
-                      -
-                        id: 40
-                        label: 40
-                      -
-                        id: 50
-                        label: 50
-                    status:
-                      -
-                        id: 1
-                        label: Todo
-                      -
-                        id: 2
-                        label: Done
-                    priority:
-                      -
-                        id: 1
-                        label: 'for future'
-                      -
-                        id: 2
-                        label: Low
-                      -
-                        id: 3
-                        label: Middle
-                      -
-                        id: 4
-                        label: High
-                      -
-                        id: 5
-                        label: Urgently
-                  sorting:
-                    - created_at
-                    - priority
-                  text:
-                    - title
-                    - description
-                properties:
-                  select:
-                    type: object
-                    properties:
-                      page_size:
-                        type: array
-                        example:
-                          -
-                            id: 10
-                            label: 10
-                          -
-                            id: 20
-                            label: 20
-                          -
-                            id: 30
-                            label: 30
-                          -
-                            id: 40
-                            label: 40
-                          -
-                            id: 50
-                            label: 50
-                        items:
-                          type: object
-                          properties:
-                            id:
-                              type: integer
-                              example: 10
-                            label:
-                              type: integer
-                              example: 10
-                      status:
-                        type: array
-                        example:
-                          -
-                            id: 1
-                            label: Todo
-                          -
-                            id: 2
-                            label: Done
-                        items:
-                          type: object
-                          properties:
-                            id:
-                              type: integer
-                              example: 1
-                            label:
-                              type: string
-                              example: Todo
-                      priority:
-                        type: array
-                        example:
-                          -
-                            id: 1
-                            label: 'for future'
-                          -
-                            id: 2
-                            label: Low
-                          -
-                            id: 3
-                            label: Middle
-                          -
-                            id: 4
-                            label: High
-                          -
-                            id: 5
-                            label: Urgently
-                        items:
-                          type: object
-                          properties:
-                            id:
-                              type: integer
-                              example: 1
-                            label:
-                              type: string
-                              example: 'for future'
-                  sorting:
-                    type: array
-                    example:
-                      - created_at
-                      - priority
-                    items:
-                      type: string
-                  text:
-                    type: array
-                    example:
-                      - title
-                      - description
-                    items:
-                      type: string
-      tags:
-        - 'Task Management'
-      security: []
-  /api/tasks/ajax_filter:
-    post:
-      summary: 'Display a listing tasks with filters'
-      operationId: displayAListingTasksWithFilters
-      description: 'Method for Ajax filtering task list'
-      parameters: []
-      responses: {  }
-      tags:
-        - 'Task Management'
-      requestBody:
-        required: false
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                page_size:
-                  type: integer
-                  description: 'Per page. Default 20.'
-                  example: 20
-                sorting:
-                  type: object
-                  description: 'Sorting by column. Default column "created_at" with direction "asc".'
-                  example: []
-                  properties:
-                    column:
-                      type: string.
-                      description: ''
-                      example: priority
-                    direction:
-                      type: string.
-                      description: ''
-                      example: desc
-                filters:
-                  type: object
-                  description: 'Tasks filters.'
-                  example: []
-                  properties:
-                    status:
-                      type: integer
-                      description: 'filter - "Status".'
-                      example: 1
-                    priority:
-                      type: integer
-                      description: 'filter - "Priority".'
-                      example: 3
-      security: []
-  '/api/tasks/complete/{task_id}':
-    post:
-      summary: 'Complete the task'
-      operationId: completeTheTask
-      description: 'Complete the task only if she has all completed subtask'
-      parameters: []
-      responses:
-        200:
-          description: ''
-          content:
-            text/plain:
-              schema:
-                type: string
-                example: "{\n      \"status\": \"success\",\n      \"message\": \"Task completed!\",\n      \"task\": {\n        \"user_id\": \"11\",\n        \"title\": \"Task title\",\n        \"description\": \"Some desc ......\",\n        \"status\": 2,\n        \"priority\": 3,\n        \"parent_id\": null,\n        \"completed_at\": 2023-11-17 03:59:12,\n        \"created_at\": \"2023-11-16T23:59:12.000000Z\",\n        \"id\": 206\n   }\n}"
-        400:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  status: error
-                  message: 'This task has enabled subtasks!'
-                properties:
-                  status:
-                    type: string
-                    example: error
-                  message:
-                    type: string
-                    example: 'This task has enabled subtasks!'
-        401:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: Unauthenticated.
-                properties:
-                  message:
-                    type: string
-                    example: Unauthenticated.
-        403:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  status: error
-                  message: Forbidden!
-                properties:
-                  status:
-                    type: string
-                    example: error
-                  message:
-                    type: string
-                    example: Forbidden!
-      tags:
-        - 'Task Management'
-      security: []
-    parameters:
-      -
-        in: path
-        name: task_id
-        description: 'The ID of the task.'
-        example: 4
+        example: 1
         required: true
         schema:
           type: integer

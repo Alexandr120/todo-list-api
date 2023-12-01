@@ -27,8 +27,71 @@ endpoints:
     cleanUrlParameters: []
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
+    bodyParameters:
+      page_size:
+        name: page_size
+        description: 'Per page. Default 20.'
+        required: false
+        example: 20
+        type: integer
+        enumValues: []
+        custom: []
+      sorting:
+        name: sorting
+        description: 'Sorting by column. Default column "created_at" with direction "asc".'
+        required: false
+        example: []
+        type: object
+        enumValues: []
+        custom: []
+      sorting.column:
+        name: sorting.column
+        description: ''
+        required: false
+        example: priority
+        type: string.
+        enumValues: []
+        custom: []
+      sorting.direction:
+        name: sorting.direction
+        description: ''
+        required: false
+        example: desc
+        type: string.
+        enumValues: []
+        custom: []
+      filters:
+        name: filters
+        description: 'Tasks filters.'
+        required: false
+        example: []
+        type: object
+        enumValues: []
+        custom: []
+      filters.status:
+        name: filters.status
+        description: 'filter - "Status".'
+        required: false
+        example: 1
+        type: integer
+        enumValues: []
+        custom: []
+      filters.priority:
+        name: filters.priority
+        description: 'filter - "Priority".'
+        required: false
+        example: 3
+        type: integer
+        enumValues: []
+        custom: []
+    cleanBodyParameters:
+      page_size: 20
+      sorting:
+        column: priority
+        direction: desc
+      filters:
+        status: 1
+        priority: 3
     fileParameters: []
     responses:
       -
@@ -254,12 +317,12 @@ endpoints:
         name: id
         description: 'The ID of the task.'
         required: true
-        example: 6
+        example: 1
         type: integer
         enumValues: []
         custom: []
     cleanUrlParameters:
-      id: 6
+      id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -365,12 +428,12 @@ endpoints:
         name: id
         description: 'The ID of the task.'
         required: true
-        example: 5
+        example: 1
         type: integer
         enumValues: []
         custom: []
     cleanUrlParameters:
-      id: 5
+      id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -467,12 +530,12 @@ endpoints:
         name: id
         description: 'The ID of the task.'
         required: true
-        example: 17
+        example: 1
         type: integer
         enumValues: []
         custom: []
     cleanUrlParameters:
-      id: 17
+      id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -495,294 +558,6 @@ endpoints:
           {
                 "status": "error",
                 "message": "You cannot delete a completed task!"
-          }
-        headers: []
-        description: ''
-        custom: []
-      -
-        status: 401
-        content: |-
-          {
-                "message": "Unauthenticated."
-          }
-        headers: []
-        description: ''
-        custom: []
-      -
-        status: 403
-        content: |-
-          {
-                "status": "error",
-                "message": "Forbidden!"
-          }
-        headers: []
-        description: ''
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - POST
-    uri: api/tasks/filters
-    metadata:
-      groupName: 'Task Management'
-      groupDescription: |-
-
-        APIs to manage the user task resourse
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Show Task filters'
-      description: 'Method for Ajax filtering task list'
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        status: 200
-        content: |-
-          {
-            "select": {
-                "page_size": [
-                    {
-                        "id": 10,
-                        "label": 10
-                    },
-                    {
-                        "id": 20,
-                        "label": 20
-                    },
-                    {
-                        "id": 30,
-                        "label": 30
-                    },
-                    {
-                        "id": 40,
-                        "label": 40
-                    },
-                    {
-                        "id": 50,
-                        "label": 50
-                    }
-                ],
-                "status": [
-                    {
-                        "id": 1,
-                        "label": "Todo"
-                    },
-                    {
-                        "id": 2,
-                        "label": "Done"
-                    }
-                ],
-                "priority": [
-                    {
-                        "id": 1,
-                        "label": "for future"
-                    },
-                    {
-                        "id": 2,
-                        "label": "Low"
-                    },
-                    {
-                        "id": 3,
-                        "label": "Middle"
-                    },
-                    {
-                        "id": 4,
-                        "label": "High"
-                    },
-                    {
-                        "id": 5,
-                        "label": "Urgently"
-                    }
-                ]
-            },
-            "sorting": [
-                "created_at", "priority"
-            ],
-            "text": [
-                "title", "description"
-            ]
-          }
-        headers: []
-        description: ''
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - POST
-    uri: api/tasks/ajax_filter
-    metadata:
-      groupName: 'Task Management'
-      groupDescription: |-
-
-        APIs to manage the user task resourse
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Display a listing tasks with filters'
-      description: 'Method for Ajax filtering task list'
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      page_size:
-        name: page_size
-        description: 'Per page. Default 20.'
-        required: false
-        example: 20
-        type: integer
-        enumValues: []
-        custom: []
-      sorting:
-        name: sorting
-        description: 'Sorting by column. Default column "created_at" with direction "asc".'
-        required: false
-        example: []
-        type: object
-        enumValues: []
-        custom: []
-      sorting.column:
-        name: sorting.column
-        description: ''
-        required: false
-        example: priority
-        type: string.
-        enumValues: []
-        custom: []
-      sorting.direction:
-        name: sorting.direction
-        description: ''
-        required: false
-        example: desc
-        type: string.
-        enumValues: []
-        custom: []
-      filters:
-        name: filters
-        description: 'Tasks filters.'
-        required: false
-        example: []
-        type: object
-        enumValues: []
-        custom: []
-      filters.status:
-        name: filters.status
-        description: 'filter - "Status".'
-        required: false
-        example: 1
-        type: integer
-        enumValues: []
-        custom: []
-      filters.priority:
-        name: filters.priority
-        description: 'filter - "Priority".'
-        required: false
-        example: 3
-        type: integer
-        enumValues: []
-        custom: []
-    cleanBodyParameters:
-      page_size: 20
-      sorting:
-        column: priority
-        direction: desc
-      filters:
-        status: 1
-        priority: 3
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - POST
-    uri: 'api/tasks/complete/{task_id}'
-    metadata:
-      groupName: 'Task Management'
-      groupDescription: |-
-
-        APIs to manage the user task resourse
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Complete the task'
-      description: 'Complete the task only if she has all completed subtask'
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      task_id:
-        name: task_id
-        description: 'The ID of the task.'
-        required: true
-        example: 4
-        type: integer
-        enumValues: []
-        custom: []
-    cleanUrlParameters:
-      task_id: 4
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        status: 200
-        content: |-
-          {
-                "status": "success",
-                "message": "Task completed!",
-                "task": {
-                  "user_id": "11",
-                  "title": "Task title",
-                  "description": "Some desc ......",
-                  "status": 2,
-                  "priority": 3,
-                  "parent_id": null,
-                  "completed_at": 2023-11-17 03:59:12,
-                  "created_at": "2023-11-16T23:59:12.000000Z",
-                  "id": 206
-             }
-          }
-        headers: []
-        description: ''
-        custom: []
-      -
-        status: 400
-        content: |-
-          {
-                "status": "error",
-                "message": "This task has enabled subtasks!"
           }
         headers: []
         description: ''

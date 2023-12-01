@@ -30,15 +30,11 @@ The logic for displaying a list of all user tasks is as follows. The method inde
 
 Resource routing is implemented accordingly ```Route::resource('tasks', \App\Http\Controllers\Api\TaskController::class);```
 
-```TaskController``` also contains helper methods:
-
-- Method ```[POST] ajaxFilter()``` for filtered Tasks list. It is assumed that this method is called using an "ajax" request from the front-end part.
-- Method ```[POST] complete``` updated status task and set date time in field completed_at.
-- Method ```[POST] tasksFiltersData``` for filters data for view index in tasks tables.
-
 You can read documentation here ```127.0.0.1/docs```
 
 The project will contain some implementation of the DTO pattern help with ```spatie/data-transfer-object``` package.
+
+The project includes the implementation of user roles and permissions help with ```spatie/laravel-permission```
 
 The ```knuckleswtf/scribe``` package was used to generate Open Api Documentation.
 

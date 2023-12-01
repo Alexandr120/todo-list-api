@@ -41,6 +41,11 @@ class TaskDTO extends DataTransferObject
     public ?int $parent_id;
 
     /**
+     * Date of completed task
+     */
+    public ?string $completed_at;
+
+    /**
      * Validate task request data
      */
     public function validate()
@@ -78,5 +83,13 @@ class TaskDTO extends DataTransferObject
         $data->map(function ($value, $property) {
             $this->$property = $value;
         });
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getCollection(): Collection
+    {
+        return new Collection($this->all());
     }
 }

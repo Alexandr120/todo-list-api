@@ -17,10 +17,11 @@ class CreateTasksTable extends Migration
             $table->bigIncrements('id');
             $table->foreignId('user_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('title');
-            $table->string('status')->default(\App\Enums\TaskStatus::TODO());
-            $table->string('priority');
+            $table->tinyInteger('status')->default(\App\Enums\TaskStatus::TODO());
+            $table->tinyInteger('priority');
             $table->text('description');
-            $table->string('parent_id')->nullable();
+            $table->foreignId('parent_id')->nullable()
+                ->references('id')->on('tasks')->cascadeOnDelete();
             $table->dateTime('completed_at')->nullable();
             $table->timestamps();
         });

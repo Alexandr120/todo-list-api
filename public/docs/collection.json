@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Laravel",
-        "_postman_id": "014737b9-39e6-44b5-a2b6-6455e6668be3",
+        "_postman_id": "1f311ff5-b3f1-43cf-8fbf-e69f9128020d",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -41,7 +41,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"brianne.nolan@example.org\",\"password\":\"y.%N.a'K1;*vBY\"}"
+                            "raw": "{\"email\":\"jupton@example.com\",\"password\":\"vh=(%6\"}"
                         },
                         "description": "",
                         "auth": {
@@ -72,7 +72,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"xaqenhtfvcun\",\"email\":\"dina12@example.net\",\"password\":\",5DukO!:9pkE%01\"}"
+                            "raw": "{\"name\":\"ysqybp\",\"email\":\"aletha59@example.org\",\"password\":\"5(v-:AaF9NG57gFh@#9\"}"
                         },
                         "description": "",
                         "auth": {
@@ -163,7 +163,10 @@
                                 "value": "application\/json"
                             }
                         ],
-                        "body": null,
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"page_size\":20,\"sorting\":{\"column\":\"priority\",\"direction\":\"desc\"},\"filters\":{\"status\":1,\"priority\":3}}"
+                        },
                         "description": "Get a list of tasks",
                         "auth": {
                             "type": "noauth"
@@ -258,7 +261,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "6",
+                                    "value": "1",
                                     "description": "The ID of the task."
                                 }
                             ]
@@ -313,7 +316,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "5",
+                                    "value": "1",
                                     "description": "The ID of the task."
                                 }
                             ]
@@ -371,7 +374,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "17",
+                                    "value": "1",
                                     "description": "The ID of the task."
                                 }
                             ]
@@ -404,133 +407,6 @@
                             "header": [],
                             "code": 400,
                             "body": "{\n      \"status\": \"error\",\n      \"message\": \"You cannot delete a completed task!\"\n}",
-                            "name": ""
-                        },
-                        {
-                            "header": [],
-                            "code": 401,
-                            "body": "{\n      \"message\": \"Unauthenticated.\"\n}",
-                            "name": ""
-                        },
-                        {
-                            "header": [],
-                            "code": 403,
-                            "body": "{\n      \"status\": \"error\",\n      \"message\": \"Forbidden!\"\n}",
-                            "name": ""
-                        }
-                    ]
-                },
-                {
-                    "name": "Show Task filters",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/tasks\/filters",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/tasks\/filters"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "Method for Ajax filtering task list",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [],
-                            "code": 200,
-                            "body": "{\n  \"select\": {\n      \"page_size\": [\n          {\n              \"id\": 10,\n              \"label\": 10\n          },\n          {\n              \"id\": 20,\n              \"label\": 20\n          },\n          {\n              \"id\": 30,\n              \"label\": 30\n          },\n          {\n              \"id\": 40,\n              \"label\": 40\n          },\n          {\n              \"id\": 50,\n              \"label\": 50\n          }\n      ],\n      \"status\": [\n          {\n              \"id\": 1,\n              \"label\": \"Todo\"\n          },\n          {\n              \"id\": 2,\n              \"label\": \"Done\"\n          }\n      ],\n      \"priority\": [\n          {\n              \"id\": 1,\n              \"label\": \"for future\"\n          },\n          {\n              \"id\": 2,\n              \"label\": \"Low\"\n          },\n          {\n              \"id\": 3,\n              \"label\": \"Middle\"\n          },\n          {\n              \"id\": 4,\n              \"label\": \"High\"\n          },\n          {\n              \"id\": 5,\n              \"label\": \"Urgently\"\n          }\n      ]\n  },\n  \"sorting\": [\n      \"created_at\", \"priority\"\n  ],\n  \"text\": [\n      \"title\", \"description\"\n  ]\n}",
-                            "name": ""
-                        }
-                    ]
-                },
-                {
-                    "name": "Display a listing tasks with filters",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/tasks\/ajax_filter",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/tasks\/ajax_filter"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"page_size\":20,\"sorting\":{\"column\":\"priority\",\"direction\":\"desc\"},\"filters\":{\"status\":1,\"priority\":3}}"
-                        },
-                        "description": "Method for Ajax filtering task list",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Complete the task",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/tasks\/complete\/:task_id",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/tasks\/complete\/:task_id",
-                            "variable": [
-                                {
-                                    "id": "task_id",
-                                    "key": "task_id",
-                                    "value": "4",
-                                    "description": "The ID of the task."
-                                }
-                            ]
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "Complete the task only if she has all completed subtask",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [],
-                            "code": 200,
-                            "body": "{\n      \"status\": \"success\",\n      \"message\": \"Task completed!\",\n      \"task\": {\n        \"user_id\": \"11\",\n        \"title\": \"Task title\",\n        \"description\": \"Some desc ......\",\n        \"status\": 2,\n        \"priority\": 3,\n        \"parent_id\": null,\n        \"completed_at\": 2023-11-17 03:59:12,\n        \"created_at\": \"2023-11-16T23:59:12.000000Z\",\n        \"id\": 206\n   }\n}",
-                            "name": ""
-                        },
-                        {
-                            "header": [],
-                            "code": 400,
-                            "body": "{\n      \"status\": \"error\",\n      \"message\": \"This task has enabled subtasks!\"\n}",
                             "name": ""
                         },
                         {

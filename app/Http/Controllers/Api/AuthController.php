@@ -3,10 +3,11 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\Request;
+use App\Repositories\UserAuthRepository;
+use App\Services\UserAuthService;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -17,9 +18,26 @@ use Symfony\Component\HttpFoundation\Response;
  */
 class AuthController extends Controller
 {
-    public function __construct()
+    /**
+     * @var UserAuthRepository
+     */
+    protected UserAuthRepository $userAuthRepository;
+
+    /**
+     * @var UserAuthService
+     */
+    protected UserAuthService $userAuthService;
+
+    /**
+     * @param UserAuthRepository $userAuthRepository
+     * @param UserAuthService $userAuthService
+     */
+    public function __construct(UserAuthRepository $userAuthRepository, UserAuthService $userAuthService)
     {
         $this->middleware('auth:sanctum', ['except' => ['login', 'register']]);
+
+        $this->userAuthRepository = $userAuthRepository;
+        $this->userAuthService = $userAuthService;
     }
 
     /**
@@ -35,21 +53,16 @@ class AuthController extends Controller
             'email' => ['required', 'string', 'email'],
             'password' => ['required', 'string'],
         ]);
-        if ($validator->fails()) {
-            return $this->sendResponse('validate error', 'Invalid user data!', Response::HTTP_BAD_REQUEST, ['errors' => $validator->errors()]);
-        }
+        if ($validator->fails()) return $this->sendValidateErrors('Invalid user data!', $validator->getMessages());
 
-        if (!Auth::attempt($credentials)) {
-            return $this->sendResponse('error', 'Invalid user credentials!', Response::HTTP_BAD_REQUEST);
+        if (!$this->userAuthRepository->checkCredentials($credentials)) {
+            return $this->sendResponse('error', 'Invalid user credentials!', Response::HTTP_OK);
         }
-
-        $user = Auth::user();
-        $token = $user->createToken('token', ['read', 'write'])->plainTextToken;
 
         return $this->sendResponse('success', 'User authorize successfully.', Response::HTTP_OK, [
-            'user' => $user,
+            'user' => $this->userAuthRepository->user(),
             'authorisation' => [
-                'token' => $token,
+                'token' => $this->userAuthRepository->createAuthToken(),
                 'type' => 'bearer',
             ]
         ]);
@@ -61,26 +74,22 @@ class AuthController extends Controller
      */
     public function register(Request $request): JsonResponse
     {
-        $validator = \Validator::make($request->all(), [
+        $userData = $request->only(['name', 'email', 'password']);
+
+        $validator = \Validator::make($userData, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:6'],
         ]);
-        if ($validator->fails()) {
-            return $this->sendResponse('validate error', 'Invalid user data!', Response::HTTP_BAD_REQUEST, ['errors' => $validator->errors()]);
-        }
+        if ($validator->fails()) return $this->sendValidateErrors('Invalid user data!', $validator->getMessages());
 
         try {
-            $user = User::create([
-                'name' => $request->name,
-                'email' => $request->email,
-                'password' => Hash::make($request->password),
-            ]);
-            if (!$user->id) {
-                throw new \Exception('Error! User not created!');
-            }
 
-            return $this->sendResponse('success', 'User created successfully!', Response::HTTP_OK, ['user' => $user]);
+            $userData['password'] = Hash::make($userData['password']);
+
+            return $this->sendResponse('success', 'User created successfully!', Response::HTTP_OK, [
+                'user' => $this->userAuthService->createUser($userData)
+            ]);
 
         } catch (\Exception $exception) {
             return $this->sendResponse('error', $exception->getMessage(), Response::HTTP_INTERNAL_SERVER_ERROR);
@@ -92,7 +101,7 @@ class AuthController extends Controller
      */
     public function logout(): JsonResponse
     {
-        Auth::user()->currentAccessToken()->delete();
+        $this->userAuthRepository->logout();
 
         return $this->sendResponse('success', 'Logged out successfully.', Response::HTTP_OK);
     }
@@ -103,7 +112,7 @@ class AuthController extends Controller
     public function refresh(): JsonResponse
     {
         return $this->sendResponse('success', 'Refresh successfully.', Response::HTTP_OK, [
-            'user' => Auth::user(),
+            'user' => $this->userAuthRepository->user(),
             'authorisation' => [
                 'token' => Auth::refresh(),
                 'type' => 'bearer',
@@ -126,6 +135,16 @@ class AuthController extends Controller
         ], $otherData);
 
         return response()->json($responseData, $code);
+    }
+
+    /**
+     * @param string $message
+     * @param array $errors
+     * @return JsonResponse
+     */
+    private function sendValidateErrors(string $message, array $errors): JsonResponse
+    {
+        return $this->sendResponse('validate error', $message, Response::HTTP_BAD_REQUEST, ['errors' => $errors]);
     }
 
 }

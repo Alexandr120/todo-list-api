@@ -32,7 +32,7 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: brianne.nolan@example.org
+        example: jupton@example.com
         type: string
         enumValues: []
         custom: []
@@ -40,13 +40,13 @@ endpoints:
         name: password
         description: ''
         required: true
-        example: "y.%N.a'K1;*vBY"
+        example: vh=(%6
         type: string
         enumValues: []
         custom: []
     cleanBodyParameters:
-      email: brianne.nolan@example.org
-      password: "y.%N.a'K1;*vBY"
+      email: jupton@example.com
+      password: vh=(%6
     fileParameters: []
     responses: []
     responseFields: []
@@ -82,7 +82,7 @@ endpoints:
         name: name
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: xaqenhtfvcun
+        example: ysqybp
         type: string
         enumValues: []
         custom: []
@@ -90,7 +90,7 @@ endpoints:
         name: email
         description: 'Must be a valid email address. Must not be greater than 255 characters.'
         required: true
-        example: dina12@example.net
+        example: aletha59@example.org
         type: string
         enumValues: []
         custom: []
@@ -98,14 +98,14 @@ endpoints:
         name: password
         description: 'Must be at least 6 characters.'
         required: true
-        example: ',5DukO!:9pkE%01'
+        example: '5(v-:AaF9NG57gFh@#9'
         type: string
         enumValues: []
         custom: []
     cleanBodyParameters:
-      name: xaqenhtfvcun
-      email: dina12@example.net
-      password: ',5DukO!:9pkE%01'
+      name: ysqybp
+      email: aletha59@example.org
+      password: '5(v-:AaF9NG57gFh@#9'
     fileParameters: []
     responses: []
     responseFields: []
